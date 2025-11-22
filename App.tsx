@@ -1,7 +1,24 @@
-import { ImageBackground, StyleSheet, Text, View } from 'react-native';
+import { useEffect } from 'react';
+import { Animated, ImageBackground, StyleSheet, Text, View } from 'react-native';
 import Button from './shared/Button/Button';
 
 export default function App() {
+  const animatedValue = new Animated.ValueXY({
+    x: -100,
+    y: 0,
+  });
+
+  useEffect(() => {
+    Animated.timing(animatedValue, {
+      toValue: {
+        x: 0,
+        y: 1,
+      },
+      duration: 1500,
+      useNativeDriver: true,
+    }).start();
+  }, []);
+
   return (
     <ImageBackground
       source={require('./assets/main-bg.jpg')}
@@ -11,7 +28,15 @@ export default function App() {
     >
       <View style={styles.content}>
         <View style={styles.textBlock}>
-          <Text style={styles.header}>Одно из самых вкусных кофе в городе!</Text>
+          <Animated.Text
+            style={{
+              ...styles.header,
+              transform: [{ translateY: animatedValue.x }],
+              opacity: animatedValue.y,
+            }}
+          >
+            Одно из самых вкусных кофе в городе!
+          </Animated.Text>
           <Text style={styles.text}>
             Свежие зёрна, настоящая арабика и бережная обжарка
           </Text>
