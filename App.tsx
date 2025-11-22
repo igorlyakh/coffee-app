@@ -1,9 +1,14 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { ImageBackground, StyleSheet, Text, View } from 'react-native';
 import Button from './shared/Button/Button';
 
 export default function App() {
   return (
-    <View style={styles.container}>
+    <ImageBackground
+      source={require('./assets/main-bg.jpg')}
+      style={styles.container}
+      resizeMode="contain"
+      imageStyle={styles.image}
+    >
       <View style={styles.content}>
         <View style={styles.textBlock}>
           <Text style={styles.header}>Одно из самых вкусных кофе в городе!</Text>
@@ -13,7 +18,7 @@ export default function App() {
         </View>
         <Button title="Начать" />
       </View>
-    </View>
+    </ImageBackground>
   );
 }
 
@@ -46,5 +51,8 @@ const styles = StyleSheet.create({
     color: '#A9A9A9',
     textAlign: 'center',
     lineHeight: 22,
+  },
+  image: {
+    transform: [{ translateY: -150 }],
   },
 });
