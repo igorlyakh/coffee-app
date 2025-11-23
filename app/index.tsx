@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { Animated, ImageBackground, StyleSheet, Text, View } from 'react-native';
 import Button from '../shared/Button/Button';
-import { Colors } from '../shared/tokens';
+import { Colors, Fonts } from '../shared/tokens';
 
 export default function App() {
   const animatedValue = new Animated.ValueXY({
@@ -65,19 +65,20 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   header: {
-    fontSize: 34,
-    fontWeight: 600,
+    fontSize: Fonts.f34,
+    fontFamily: Fonts.soraSemiBold,
     textAlign: 'center',
     color: Colors.white,
     width: 315,
     letterSpacing: 0.34,
   },
   text: {
-    fontSize: 14,
+    fontSize: Fonts.f14,
     letterSpacing: 0.14,
     color: Colors.grey,
     textAlign: 'center',
     lineHeight: 22,
+    fontFamily: Fonts.sora,
   },
   image: {
     transform: [{ translateY: -150 }],

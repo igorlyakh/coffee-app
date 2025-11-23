@@ -7,6 +7,8 @@ export const Colors = {
 };
 
 export const Fonts = {
+  sora: 'Sora',
+  soraSemiBold: 'SoraSemiBold',
   f34: 34,
   f14: 14,
   f16: 16,
