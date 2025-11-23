@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { Animated, ImageBackground, StyleSheet, Text, View } from 'react-native';
-import Button from './shared/Button/Button';
-import { Colors } from './shared/tokens';
+import Button from '../shared/Button/Button';
+import { Colors } from '../shared/tokens';
 
 export default function App() {
   const animatedValue = new Animated.ValueXY({
@@ -22,7 +22,7 @@ export default function App() {
 
   return (
     <ImageBackground
-      source={require('./assets/main-bg.jpg')}
+      source={require('../assets/main-bg.jpg')}
       style={styles.container}
       resizeMode="contain"
       imageStyle={styles.image}
@@ -62,6 +62,7 @@ const styles = StyleSheet.create({
   },
   textBlock: {
     gap: 8,
+    alignItems: 'center',
   },
   header: {
     fontSize: 34,
