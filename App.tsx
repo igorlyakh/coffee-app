@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { Animated, ImageBackground, StyleSheet, Text, View } from 'react-native';
 import Button from './shared/Button/Button';
+import { Colors } from './shared/tokens';
 
 export default function App() {
   const animatedValue = new Animated.ValueXY({
@@ -54,7 +55,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
     paddingHorizontal: 30,
     paddingVertical: 50,
-    backgroundColor: '#000000',
+    backgroundColor: Colors.black,
   },
   content: {
     gap: 24,
@@ -66,14 +67,14 @@ const styles = StyleSheet.create({
     fontSize: 34,
     fontWeight: 600,
     textAlign: 'center',
-    color: '#FFFFFF',
+    color: Colors.white,
     width: 315,
     letterSpacing: 0.34,
   },
   text: {
     fontSize: 14,
     letterSpacing: 0.14,
-    color: '#A9A9A9',
+    color: Colors.grey,
     textAlign: 'center',
     lineHeight: 22,
   },
