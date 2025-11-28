@@ -1,6 +1,6 @@
-import { Link } from 'expo-router';
 import { useEffect } from 'react';
 import { Animated, ImageBackground, StyleSheet, Text, View } from 'react-native';
+import Button from '../shared/Button/Button';
 import { Colors, Fonts } from '../shared/tokens';
 
 export default function App() {
@@ -42,13 +42,7 @@ export default function App() {
             Свежие зёрна, настоящая арабика и бережная обжарка
           </Text>
         </View>
-        {/* <Button title="Начать" /> */}
-        <Link
-          style={{ color: '#ffffff' }}
-          href={'/catalog'}
-        >
-          Test link
-        </Link>
+        <Button title="Начать" />
       </View>
     </ImageBackground>
   );
