@@ -1,9 +1,13 @@
 export const Colors = {
   white: '#FFFFFF',
+  catalogColor: '#F9F9F9',
   grey: '#A9A9A9',
-  primary: '#c67c4e',
-  primaryDark: '#a76237',
+  primary: '#C67C4E',
+  primaryDark: '#A76237',
   black: '#000000',
+  darkGrey: '#2F2D2C',
+  lightDark: '#9B9B9B',
+  priceColor: '#2F4B4E',
 };
 
 export const Fonts = {
@@ -14,6 +18,7 @@ export const Fonts = {
   f16: 16,
   f12: 12,
   f18: 18,
+  f10: 10,
 };
 
 export const Radius = {

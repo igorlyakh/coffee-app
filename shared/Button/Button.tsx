@@ -1,15 +1,23 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import {
   Animated,
   GestureResponderEvent,
   Pressable,
   PressableProps,
+  StyleProp,
   StyleSheet,
   Text,
+  ViewStyle,
 } from 'react-native';
 import { Colors, Fonts, Radius } from '../tokens';
 
-export default function Button({ title, ...props }: PressableProps & { title: string }) {
+type ButtonProps = PressableProps & {
+  title: string | ReactNode;
+  style?: StyleProp<ViewStyle>;
+  pressableStyle?: StyleProp<ViewStyle>;
+};
+
+export default function Button({ title, style, pressableStyle, ...props }: ButtonProps) {
   const animatedValue = new Animated.Value(100);
 
   const color = animatedValue.interpolate({
@@ -32,7 +40,7 @@ export default function Button({ title, ...props }: PressableProps & { title: st
       duration: 100,
       useNativeDriver: true,
     }).start();
-    props.onPressIn && props.onPressIn(e);
+    props.onPressOut && props.onPressOut(e);
   };
 
   return (
@@ -41,7 +49,7 @@ export default function Button({ title, ...props }: PressableProps & { title: st
       onPressIn={fadeIn}
       onPressOut={fadeOut}
     >
-      <Animated.View style={{ ...styles.button, backgroundColor: color }}>
+      <Animated.View style={[styles.button, style, { backgroundColor: color }]}>
         <Text style={styles.text}>{title}</Text>
       </Animated.View>
     </Pressable>
