@@ -8,6 +8,8 @@ export const Colors = {
   darkGrey: '#2F2D2C',
   lightDark: '#9B9B9B',
   priceColor: '#2F4B4E',
+  mainInput: '#313131',
+  textInput: '#989898',
 };
 
 export const Fonts = {

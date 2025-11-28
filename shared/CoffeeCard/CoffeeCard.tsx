@@ -18,7 +18,7 @@ export default function CoffeeCard({
         <Image
           resizeMode="stretch"
           style={styles.image}
-          source={image}
+          source={{ uri: image }}
         />
         <View style={styles.rating}>
           <StarIcon />
