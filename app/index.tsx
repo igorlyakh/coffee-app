@@ -1,9 +1,14 @@
+import { router } from 'expo-router';
 import { useEffect } from 'react';
 import { Animated, ImageBackground, StyleSheet, Text, View } from 'react-native';
 import Button from '../shared/Button/Button';
 import { Colors, Fonts } from '../shared/tokens';
 
 export default function App() {
+  const redirect = () => {
+    router.replace('/catalog');
+  };
+
   const animatedValue = new Animated.ValueXY({
     x: -100,
     y: 0,
@@ -42,7 +47,10 @@ export default function App() {
             Свежие зёрна, настоящая арабика и бережная обжарка
           </Text>
         </View>
-        <Button title="Начать" />
+        <Button
+          title="Начать"
+          onPress={redirect}
+        />
       </View>
     </ImageBackground>
   );
