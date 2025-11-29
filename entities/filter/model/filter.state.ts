@@ -1,7 +1,7 @@
 import axios, { AxiosError } from 'axios';
 import { atom } from 'jotai';
 import { API_URL } from '../api/api';
-import { FilteredCoffee } from './filter.model';
+import { FilteredCoffee, FilterRequest } from './filter.model';
 
 const INITIAL_STATE = {
   coffee: null,
@@ -13,14 +13,20 @@ const _storageAtom = atom<FilterState>(INITIAL_STATE);
 
 export const filterAtom = atom(
   get => get(_storageAtom),
-  async (_get, set) => {
+  async (_get, set, update?: FilterRequest) => {
+    const { text = '', type = '' } = update ?? {};
     set(_storageAtom, {
       coffee: null,
       isLoading: true,
       error: null,
     });
     try {
-      const { data } = await axios.get<FilteredCoffee[]>(API_URL);
+      const { data } = await axios.get<FilteredCoffee[]>(API_URL, {
+        params: {
+          text,
+          type,
+        },
+      });
       set(_storageAtom, {
         coffee: data,
         isLoading: false,

@@ -8,3 +8,8 @@ export interface FilteredCoffee {
   description: string;
   rating: number;
 }
+
+export interface FilterRequest {
+  text?: string;
+  type?: string;
+}
