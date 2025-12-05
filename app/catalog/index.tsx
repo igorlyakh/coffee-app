@@ -4,27 +4,34 @@ import { ActivityIndicator, StyleSheet, View } from 'react-native';
 import { filterAtom } from '../../entities/filter/model/filter.state';
 import SearchInput from '../../entities/filter/ui/SearchInput/SearchInput';
 import CoffeeCard from '../../shared/CoffeeCard/CoffeeCard';
+import FilterList from '../../shared/FilterList/FilterList';
+import { Colors } from '../../shared/tokens';
 
 export default function Catalog() {
   const [{ coffee, isLoading }, filter] = useAtom(filterAtom);
 
   const [searchInput, setSearchInput] = useState<string>('');
 
+  // Первый запрос на получение всего списка
   useEffect(() => {
     filter();
   }, []);
 
+  // Фильтрация по тексту. type сохраняется внутри атома.
   useEffect(() => {
     filter({ text: searchInput });
   }, [searchInput]);
 
   return (
-    <>
-      <SearchInput
-        value={searchInput}
-        onChangeText={setSearchInput}
-      />
-      {isLoading && <ActivityIndicator size={'large'} />}
+    <View style={styles.mainWrapper}>
+      <View style={styles.searchWrapper}>
+        <SearchInput
+          value={searchInput}
+          onChangeText={setSearchInput}
+        />
+      </View>
+      {isLoading && <ActivityIndicator size="large" />}
+      <FilterList />
       <View style={styles.root}>
         {coffee?.map(item => {
           return (
@@ -39,7 +46,7 @@ export default function Catalog() {
           );
         })}
       </View>
-    </>
+    </View>
   );
 }
 
@@ -50,5 +57,14 @@ const styles = StyleSheet.create({
     columnGap: 13,
     rowGap: 16,
     justifyContent: 'center',
+  },
+  searchWrapper: {
+    height: 170,
+    backgroundColor: Colors.black,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  mainWrapper: {
+    gap: 28,
   },
 });
