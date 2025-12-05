@@ -1,7 +1,7 @@
 {
   "name": "coffee-app",
   "version": "1.0.0",
-  "main": "index.ts",
+  "main": "expo-router/entry",
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
@@ -9,13 +9,31 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "axios": "^1.13.2",
     "expo": "~54.0.25",
+    "expo-constants": "~18.0.10",
+    "expo-font": "^14.0.9",
+    "expo-linking": "~8.0.9",
+    "expo-router": "~6.0.15",
+    "expo-splash-screen": "^31.0.11",
     "expo-status-bar": "~3.0.8",
+    "jotai": "^2.15.1",
     "react": "19.1.0",
-    "react-native": "0.81.5"
+    "react-native": "0.81.5",
+    "react-native-safe-area-context": "~5.6.0",
+    "react-native-screens": "~4.16.0",
+    "react-native-svg": "15.12.1"
   },
   "devDependencies": {
     "@types/react": "~19.1.0",
+    "@typescript-eslint/eslint-plugin": "^6.16.0",
+    "@typescript-eslint/parser": "^6.16.0",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.2",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-native": "^4.1.0",
+    "prettier": "^3.1.1",
     "typescript": "~5.9.2"
   },
   "private": true
